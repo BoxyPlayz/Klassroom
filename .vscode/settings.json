@@ -1,0 +1,15 @@
+{
+	"search.exclude": {
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.DS_Store": true,
+		"**/node_modules": true,
+		"**/pnpm-lock.yaml": true
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"**/.swc": true
+	}
+}
