@@ -1,14 +1,10 @@
 {
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src"
-  ],
+  "exclude": ["node_modules"],
+  "include": ["src"],
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-		"incremental": true,
-		"allowJs": true,
+    "incremental": true,
+    "allowJs": true,
     "importHelpers": true,
     "esModuleInterop": true,
 
@@ -48,6 +44,12 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
+  },
+  "watchOptions": {
+    "excludeDirectories": [
+      "node_modules",
+      "dist"
+    ]
   }
 }
