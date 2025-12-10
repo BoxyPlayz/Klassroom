@@ -25,7 +25,6 @@ export default function Login() {
 							if (error) {
 								console.error({ data, error });
 								setErr(error.message);
-								return;
 							}
 						}}>
 						Sign In With Google

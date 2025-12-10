@@ -9,11 +9,11 @@ interface colorSchemeInterface {
 	linkSelect: color;
 }
 
-export interface theme {
+export interface Theme {
 	colors: Record<string, colorSchemeInterface>;
 }
 
-const theme: theme = {
+const theme: Theme = {
 	colors: {
 		light: {
 			background: '#ff00ddff',
@@ -34,4 +34,4 @@ const theme: theme = {
 	},
 };
 
-export { theme };
+export default theme

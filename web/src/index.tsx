@@ -8,7 +8,7 @@ import {
 	prerender as ssr,
 } from 'preact-iso';
 import Header from './components/Header.jsx';
-import { theme } from './lib/theme';
+import theme from './lib/theme';
 import './style.css';
 
 const Home = lazy(() => import('./pages/Home/index.jsx'));
