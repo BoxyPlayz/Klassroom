@@ -1,7 +1,7 @@
 import preactLogo from "../../assets/preact.svg";
 import "./style.css";
 
-export function Home() {
+export default function Home() {
   return (
     <div class="home">
       <a href="https://preactjs.com" target="_blank">

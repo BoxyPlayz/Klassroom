@@ -6,21 +6,18 @@ const app = express();
 const port = 3000;
 
 app.use(
-    cors({
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-        origin: [
-            "http://localhost:3000",
-            "http://localhost:8000"
-        ]
-    }),
+  cors({
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    origin: ["http://localhost:3000", "http://localhost:8000"],
+  }),
 );
 
 app.all("/api/auth/*splat", toNodeHandler(auth));
-app.get("/ping", (_req, res) => {
-    res.send("pong")
-})
 app.use(express.json());
+app.get("/ping", (_req, res) => {
+  res.send("pong");
+});
 app.listen(port, () => {
-    console.log(`API listening on http://localhost:${port}`);
+  console.log(`API listening on http://localhost:${port}`);
 });

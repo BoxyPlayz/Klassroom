@@ -2,9 +2,11 @@
 
 import { useLocation } from "preact-iso";
 import { authClient } from "@/lib/auth-client";
+import { useState } from "preact/hooks";
 
 export default function Login() {
   const { data: session, refetch } = authClient.useSession();
+  const [err, setErr] = useState("")
   const location = useLocation();
   return (
     <>
@@ -16,9 +18,11 @@ export default function Login() {
             onClick={async () => {
               const { data, error } = await authClient.signIn.social({
                 provider: "google",
+                callbackURL: document.location.toString()
               });
               if (error) {
                 console.error({ data, error });
+                setErr(error.message)
                 return;
               }
             }}
@@ -33,12 +37,13 @@ export default function Login() {
               }
               if (data?.session) {
                 refetch();
-                location.route("/dashboard");
+                location.route("/");
               }
             }}
           >
             Sign In With Passkey
           </button>
+          <p>{err}</p>
         </>
       )}
     </>

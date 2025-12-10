@@ -1,17 +1,16 @@
-import { useLocation } from "preact-iso";
+import HeaderLink from "./HeaderLink";
 
-export function Header() {
-  const { url } = useLocation();
+export default function Header() {
 
   return (
     <header>
       <nav>
-        <a href="/" class={url == "/" && "active"}>
+        <HeaderLink href="/">
           Home
-        </a>
-        <a href="/404" class={url == "/404" && "active"}>
-          404
-        </a>
+        </HeaderLink>
+        <HeaderLink href="/account" requireSession={true} fallback={
+          <HeaderLink href="/login" text="Sign In" />
+        } text="Account"/>
       </nav>
     </header>
   );

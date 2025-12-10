@@ -4,13 +4,16 @@ import {
   Route,
   hydrate,
   prerender as ssr,
+  lazy,
 } from "preact-iso";
 
-import { Header } from "./components/Header.jsx";
-import { Home } from "./pages/Home/index.jsx";
-import { NotFound } from "./pages/_404.jsx";
 import "./style.css";
-import Login from "./pages/Login/index.jsx";
+
+import Header from "./components/Header.jsx";
+const Home =  lazy(() => import("./pages/Home/index.jsx"));
+const NotFound = lazy(() => import("./pages/_404.jsx"));
+const Login = lazy(() => import("./pages/Login/index.jsx"));
+const Account = lazy(() => import("./pages/Account/index.jsx"));
 
 export function App() {
   return (
@@ -20,6 +23,7 @@ export function App() {
         <Router>
           <Route path="/" component={Home} />
           <Route path="/login" component={Login}></Route>
+          <Route path="/account" component={Account}></Route>
           <Route default component={NotFound} />
         </Router>
       </main>
