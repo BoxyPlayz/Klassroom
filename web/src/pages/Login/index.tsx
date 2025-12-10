@@ -1,28 +1,29 @@
-"use client";
-
 import { useLocation } from "preact-iso";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "preact/hooks";
 
 export default function Login() {
-  const { data: session, refetch } = authClient.useSession();
-  const [err, setErr] = useState("")
+  const { data: session } = authClient.useSession();
+  const [err, setErr] = useState("");
   const location = useLocation();
   return (
     <>
       {session ? (
-        <p>You&apos;re already logged in :)</p>
+        <>
+          <p>You&apos;re already logged in :)</p>
+          <a href="/">Where you probably meant to go</a>
+        </>
       ) : (
         <>
           <button
             onClick={async () => {
               const { data, error } = await authClient.signIn.social({
                 provider: "google",
-                callbackURL: document.location.toString()
+                callbackURL: document.location.toString(),
               });
               if (error) {
                 console.error({ data, error });
-                setErr(error.message)
+                setErr(error.message);
                 return;
               }
             }}
@@ -36,7 +37,6 @@ export default function Login() {
                 console.error(error);
               }
               if (data?.session) {
-                refetch();
                 location.route("/");
               }
             }}
