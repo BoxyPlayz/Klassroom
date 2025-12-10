@@ -5,22 +5,22 @@ type HSL = `hsl(${number}, ${number}%, ${number}%)`;
 type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})`;
 
 type namedColor =
-  | "black"
-  | "silver"
-  | "gray"
-  | "white"
-  | "maroon"
-  | "red"
-  | "purple"
-  | "fuchsia"
-  | "green"
-  | "lime"
-  | "olive"
-  | "yellow"
-  | "navy"
-  | "blue"
-  | "teal"
-  | "aqua";
+	| 'black'
+	| 'silver'
+	| 'gray'
+	| 'white'
+	| 'maroon'
+	| 'red'
+	| 'purple'
+	| 'fuchsia'
+	| 'green'
+	| 'lime'
+	| 'olive'
+	| 'yellow'
+	| 'navy'
+	| 'blue'
+	| 'teal'
+	| 'aqua';
 
 /**
  * A standard color, for use in CSS

@@ -1,0 +1,18 @@
+{
+	"name": "klassroom-v2",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"main": "index.js",
+	"scripts": {
+		"prettier": "prettier . --write"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.24.0",
+	"devDependencies": {
+		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
+		"prettier": "^3.7.4"
+	}
+}
