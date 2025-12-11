@@ -10,7 +10,9 @@ export default function Account() {
 	const [passkeys, setPasskeys] = useState<Passkey[]>();
 	const getPasskeys = useCallback(async () => {
 		const { data, error } = await authClient.passkey.listUserPasskeys();
-		if (error) {return console.error(error)};
+		if (error) {
+			return console.error(error);
+		}
 		setPasskeys(data);
 	}, []);
 	const [hasError, setHasError] = useState(false);
@@ -27,9 +29,8 @@ export default function Account() {
 				<img
 					src={
 						hasError ?
-						'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg'
-						:
-							session?.user.image
+							'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg'
+						:	session?.user.image
 					}
 					height={40}
 					width={40}

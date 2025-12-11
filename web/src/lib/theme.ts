@@ -34,4 +34,4 @@ const theme: Theme = {
 	},
 };
 
-export default theme
+export default theme;
