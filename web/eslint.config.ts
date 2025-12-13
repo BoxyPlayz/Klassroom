@@ -28,6 +28,7 @@ export default defineConfig([
 			'capitalized-comments': ['off'],
 			'func-style': ['off'],
 			'consistent-return': ['off'],
+			'no-alert': ['off']
 		},
 	},
 	tseslint.configs.strict,

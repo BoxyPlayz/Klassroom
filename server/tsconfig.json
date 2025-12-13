@@ -44,7 +44,8 @@
 		"isolatedModules": true,
 		"noUncheckedSideEffectImports": true,
 		"moduleDetection": "force",
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"removeComments": true
 	},
 	"watchOptions": { "excludeDirectories": ["node_modules", "dist"] }
 }

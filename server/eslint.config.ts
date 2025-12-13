@@ -15,4 +15,11 @@ export default defineConfig([
 		languageOptions: { globals: globals.node },
 	},
 	tseslint.configs.strict,
+	{
+		rules: {
+			"@typescript-eslint/ban-ts-comment": [
+				"off"
+			]
+		}
+	}
 ]);

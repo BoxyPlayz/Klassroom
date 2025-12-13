@@ -1,5 +1,5 @@
 import { useLocalStorage } from '@reactuses/core';
-import { theme } from '@/lib/theme';
+import theme from '@/lib/theme';
 import HeaderLink from './HeaderLink';
 
 export default function Header() {

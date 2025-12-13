@@ -1,10 +1,11 @@
 import { useLocation } from 'preact-iso';
-import { useState } from 'preact/hooks';
-import { authClient } from '@/lib/auth-client';
+import { useRef, useState } from 'preact/hooks';
+import { authClient, signIn } from '@/lib/auth-client';
 
 export default function Login() {
 	const { data: session } = authClient.useSession();
 	const [err, setErr] = useState('');
+	const emailInput = useRef<HTMLInputElement>(null)
 	const location = useLocation();
 	return (
 		<>
@@ -42,6 +43,19 @@ export default function Login() {
 						}}>
 						Sign In With Passkey
 					</button>
+					<input type="email" name="emailInput" id="emailInput" ref={emailInput} /><button onClick={() => {
+						signIn.magicLink({
+							email: emailInput.current.value,
+							callbackURL: `${window.location.protocol}//${window.location.hostname}${window.location.port ? `:${window.location.port}`: null}`
+						}).then(({data, error}) => {
+							if (error) {
+							console.error(error)
+							}
+							if (data.status) {
+								alert("Check your inbox!")
+							}
+						})
+					}}>Sign in with Email</button>
 					<p>{err}</p>
 				</>
 			}
