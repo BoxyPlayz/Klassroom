@@ -40,10 +40,7 @@ export default function RootLayout() {
 }
 `;
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 const moveDirectories = async (userInput) => {
 	try {
@@ -58,15 +55,9 @@ const moveDirectories = async (userInput) => {
 			const oldDirPath = path.join(root, dir);
 			if (fs.existsSync(oldDirPath)) {
 				if (userInput === 'y') {
-					const newDirPath = path.join(
-						root,
-						exampleDir,
-						dir
-					);
+					const newDirPath = path.join(root, exampleDir, dir);
 					await fs.promises.rename(oldDirPath, newDirPath);
-					console.log(
-						`➡️ /${dir} moved to /${exampleDir}/${dir}.`
-					);
+					console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
 				} else {
 					await fs.promises.rm(oldDirPath, {
 						recursive: true,

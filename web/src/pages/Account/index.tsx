@@ -61,15 +61,16 @@ export default function Account() {
 			<form
 				onSubmit={async (event) => {
 					event.preventDefault();
-					const { data, error } =
-						await authClient.passkey.addPasskey({
+					const { data, error } = await authClient.passkey.addPasskey(
+						{
 							name: (
 								passkeyRef.current || {
 									value: 'getttttdduuunnkkkeedddooonn',
 								}
 							).value,
 							authenticatorAttachment: 'platform',
-						});
+						}
+					);
 					if (error) {
 						console.error(error);
 					}

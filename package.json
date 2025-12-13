@@ -12,7 +12,8 @@
 	"license": "ISC",
 	"packageManager": "pnpm@10.24.0",
 	"devDependencies": {
-		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
+		"@boxyplayz/prettier-config": "^1.0.0",
 		"prettier": "^3.7.4"
-	}
+	},
+	"prettier": "@boxyplayz/prettier-config"
 }

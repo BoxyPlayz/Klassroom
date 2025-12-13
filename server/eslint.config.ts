@@ -4,10 +4,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores([
-    "node_modules",
-    "dist"
-  ]),
+	globalIgnores(['node_modules', 'dist']),
 	{
 		files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
 		plugins: { js },
@@ -15,11 +12,5 @@ export default defineConfig([
 		languageOptions: { globals: globals.node },
 	},
 	tseslint.configs.strict,
-	{
-		rules: {
-			"@typescript-eslint/ban-ts-comment": [
-				"off"
-			]
-		}
-	}
+	{ rules: { '@typescript-eslint/ban-ts-comment': ['off'] } },
 ]);

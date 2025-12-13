@@ -8,8 +8,10 @@ export default function Header() {
 		<header
 			style={{
 				backgroundColor: theme.colors[themeColor].foreground,
+				display: 'flex',
+				justifyContent: 'flex-start',
 			}}>
-			<nav>
+			<nav style={{ display: 'flex' }}>
 				<HeaderLink href='/'>Home</HeaderLink>
 				<HeaderLink
 					href='/account'

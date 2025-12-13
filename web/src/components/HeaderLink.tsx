@@ -31,6 +31,8 @@ export default function HeaderLink(props: LinkProps) {
 					location.url === props.href ?
 						theme.colors[themeColor].linkSelect
 					:	theme.colors[themeColor].link,
+				padding: '0.75rem',
+				textDecoration: 'none',
 			}}>
 			{props.text}
 			{props.children}

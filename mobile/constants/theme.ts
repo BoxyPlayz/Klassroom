@@ -37,12 +37,7 @@ export const Fonts = Platform.select({
 		/** iOS `UIFontDescriptorSystemDesignMonospaced` */
 		mono: 'ui-monospace',
 	},
-	default: {
-		sans: 'normal',
-		serif: 'serif',
-		rounded: 'normal',
-		mono: 'monospace',
-	},
+	default: { sans: 'normal', serif: 'serif', rounded: 'normal', mono: 'monospace' },
 	web: {
 		sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
 		serif: "Georgia, 'Times New Roman', serif",
