@@ -40,10 +40,13 @@ export default function Writer() {
 				</div>
 			</div>
 			<h1>Tips & Tricks</h1>
-			<p>
-				Use # to make text <code>big</code>
-			</p>
+			<p>Use # to make text big</p>
 			<h1># Big Text</h1>
+			<p>Use - to make a list</p>
+			<ul>
+				<li>- Item 1</li>
+				<li>- Item 2</li>
+			</ul>
 		</div>
 	);
 }

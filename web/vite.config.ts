@@ -12,13 +12,13 @@ export default defineConfig({
 	resolve: { alias: { '@': path.join(__dirname, 'src') } },
 	plugins: [
 		preact({
-			prerender: {
-				enabled: true,
-				renderTarget: '#app',
-				additionalPrerenderRoutes: ['/404'],
-				previewMiddlewareEnabled: true,
-				previewMiddlewareFallback: '/404',
-			},
+			// prerender: {
+			// 	enabled: false,
+			// 	renderTarget: '#app',
+			// 	additionalPrerenderRoutes: ['/404'],
+			// 	previewMiddlewareEnabled: true,
+			// 	previewMiddlewareFallback: '/404',
+			// },
 		}),
 	],
 	server: { port: 8000, host: true },

@@ -3,17 +3,12 @@ import { type Auth, betterAuth } from 'better-auth';
 import { magicLink } from 'better-auth/plugins';
 import { organization } from 'better-auth/plugins/organization';
 import 'dotenv/config';
-import { Pool } from 'pg';
 import { sendMail } from './nodemailer.js';
+import { db } from './db.js';
 
 export const auth: Auth = betterAuth({
 	session: { cookieCache: { enabled: true, maxAge: 3 * 60 } },
-	database: new Pool({
-		connectionString:
-			process.env['DATABASE_URL'] ||
-			'postgres://admin:1234@localhost:5432/database',
-	}),
-
+	database: db,
 	plugins: [
 		passkey({ rpName: 'Klassroom' }),
 		organization({ sendInvitationEmail: async () => {} }),
