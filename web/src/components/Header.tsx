@@ -13,6 +13,7 @@ export default function Header() {
 			}}>
 			<nav style={{ display: 'flex' }}>
 				<HeaderLink href='/'>Home</HeaderLink>
+				<HeaderLink href='/writer'>Writer</HeaderLink>
 				<HeaderLink
 					href='/account'
 					requireSession={true}

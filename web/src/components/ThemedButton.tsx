@@ -14,7 +14,7 @@ export default function ThemedButton({
 		<button
 			onClick={onClick}
 			style={{
-				color: theme.colors[themeColor].textContrast,
+				color: theme.colors[themeColor].text,
 				backgroundColor: theme.colors[themeColor].foreground,
 			}}>
 			{children}

@@ -1,0 +1,15 @@
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	flex: 1;
+	min-height: calc(100dvh - 3rem);
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0; /* ← THIS IS CRITICAL */
+	overflow: hidden; /* ← CONTAINS THE SCROLL */
+}
