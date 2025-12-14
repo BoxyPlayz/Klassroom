@@ -3,8 +3,8 @@ import { type Auth, betterAuth } from 'better-auth';
 import { magicLink } from 'better-auth/plugins';
 import { organization } from 'better-auth/plugins/organization';
 import 'dotenv/config';
-import { sendMail } from './nodemailer.js';
 import { rawDb } from './db.js';
+import { sendMail } from './nodemailer.js';
 
 export const auth: Auth = betterAuth({
 	session: { cookieCache: { enabled: true, maxAge: 3 * 60 } },

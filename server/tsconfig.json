@@ -3,6 +3,7 @@
 	"include": ["src"],
 	// Visit https://aka.ms/tsconfig to read more about this file
 	"compilerOptions": {
+		"baseUrl": "src",
 		"incremental": true,
 		"allowJs": true,
 		"importHelpers": true,
@@ -45,7 +46,8 @@
 		"noUncheckedSideEffectImports": true,
 		"moduleDetection": "force",
 		"skipLibCheck": true,
-		"removeComments": true
+		"removeComments": true,
+		"paths": { "@/*": ["*"], "@lib/*": ["./lib/*"] }
 	},
 	"watchOptions": { "excludeDirectories": ["node_modules", "dist"] }
 }

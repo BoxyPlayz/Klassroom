@@ -2,6 +2,18 @@ import { toNodeHandler } from 'better-auth/node';
 import cors from 'cors';
 import express from 'express';
 import { auth } from './lib/auth.js';
+import Stories from './routes/stories.js';
+import { db } from './lib/db.js';
+
+await db.schema
+  .createTable('stories')
+  .ifNotExists()
+  .addColumn('id', 'integer', col =>
+    col.generatedByDefaultAsIdentity().primaryKey()
+  )
+  .addColumn('story', 'text', col => col.notNull())
+  .addColumn('author', 'integer', col => col.notNull())
+  .execute();
 
 const app = express();
 const port = 3000;
@@ -16,6 +28,7 @@ app.use(
 
 app.all('/api/auth/*splat', toNodeHandler(auth));
 app.use(express.json());
+app.use('/story', Stories);
 app.get('/ping', (_req, res) => {
 	res.send('pong');
 });
