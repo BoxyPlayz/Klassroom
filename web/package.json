@@ -37,6 +37,6 @@
 		"vite": "^7.2.7"
 	},
 	"browserslist": [
-		"defaults, fully supports es6-module"
+		"defaults, fully supports es6-module, >2%, not dead"
 	]
 }

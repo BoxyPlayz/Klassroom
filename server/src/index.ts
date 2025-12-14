@@ -2,18 +2,16 @@ import { toNodeHandler } from 'better-auth/node';
 import cors from 'cors';
 import express from 'express';
 import { auth } from './lib/auth.js';
-import Stories from './routes/stories.js';
 import { db } from './lib/db.js';
+import Stories from './routes/stories.js';
 
 await db.schema
-  .createTable('stories')
-  .ifNotExists()
-  .addColumn('id', 'integer', col =>
-    col.generatedByDefaultAsIdentity().primaryKey()
-  )
-  .addColumn('story', 'text', col => col.notNull())
-  .addColumn('author', 'integer', col => col.notNull())
-  .execute();
+	.createTable('stories')
+	.ifNotExists()
+	.addColumn('id', 'integer', (col) => col.generatedByDefaultAsIdentity().primaryKey())
+	.addColumn('story', 'text', (col) => col.notNull())
+	.addColumn('author', 'text', (col) => col.notNull())
+	.execute();
 
 const app = express();
 const port = 3000;

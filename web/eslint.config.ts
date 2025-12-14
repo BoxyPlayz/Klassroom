@@ -31,6 +31,7 @@ export default defineConfig([
 			'no-alert': ['off'],
 			'no-inline-comments': ['off'],
 			'max-statements': ['off'],
+			'compat/compat': ['off'],
 		},
 	},
 	tseslint.configs.strict,
