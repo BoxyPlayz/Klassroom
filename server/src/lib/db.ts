@@ -9,7 +9,8 @@ if (!process.env['DATABASE_URL']) {
 interface Story {
 	id?: number;
 	story: string;
-	author: number;
+	author: string;
+	title: string;
 }
 
 interface Database {

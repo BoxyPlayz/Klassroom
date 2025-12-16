@@ -27,12 +27,12 @@
 		"tsc-watch": "^7.2.0",
 		"tslib": "^2.8.1",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.49.0"
+		"typescript-eslint": "^8.50.0"
 	},
 	"dependencies": {
-		"@better-auth/passkey": "^1.4.6",
+		"@better-auth/passkey": "^1.4.7",
 		"@types/nodemailer": "^7.0.4",
-		"better-auth": "^1.4.6",
+		"better-auth": "^1.4.7",
 		"cors": "^2.8.5",
 		"dotenv": "^17.2.3",
 		"express": "^5.2.1",

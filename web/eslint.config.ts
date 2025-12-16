@@ -1,7 +1,6 @@
 import css from '@eslint/css';
 import js from '@eslint/js';
 import json from '@eslint/json';
-// import reactHooks from 'eslint-plugin-react-hooks';
 // import preact from 'eslint-config-preact';
 import compat from 'eslint-plugin-compat';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -11,7 +10,7 @@ import tseslint from 'typescript-eslint';
 export default defineConfig([
 	// ...preact,
 	compat.configs['flat/recommended'],
-	globalIgnores(['node_modules']),
+	globalIgnores(['node_modules', 'dist']),
 	{
 		files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 		plugins: { js },
@@ -31,11 +30,9 @@ export default defineConfig([
 			'no-alert': ['off'],
 			'no-inline-comments': ['off'],
 			'max-statements': ['off'],
-			'compat/compat': ['off'],
 		},
 	},
 	tseslint.configs.strict,
-	// reactHooks.configs.flat.recommended,
 	{ languageOptions: { parserOptions: { projectService: true } } },
 	{
 		files: ['**/*.jsonc', '**/*.json'],

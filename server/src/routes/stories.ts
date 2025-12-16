@@ -5,20 +5,17 @@ import { db } from '../lib/db.js';
 
 const Stories = Router();
 
-Stories.get('/test', async (_req, res) => {
-	await db
-		.insertInto('stories')
-		.values({ story: 'The Quick Brown Fox Jumps Over The Lazy Dog', author: 0 })
-		.executeTakeFirst();
-	return res.send('Generated');
-});
-
 Stories.post('/create', async (req, res) => {
 	const session = await auth.api.getSession({ headers: fromNodeHeaders(req.headers) });
 	if (!session?.user) {
 		return res.status(401).json({ error: 'not logged in' });
 	}
-	return res.json({ id: session.user.id, story: req.body.story });
+	const inserted = await db
+		.insertInto('stories')
+		.values({ author: session.user.id, story: req.body.story, title: req.body.title })
+		.returning('id')
+		.executeTakeFirst();
+	return res.json({ id: inserted?.id });
 });
 
 Stories.get('/:id', async (req, res) => {
@@ -37,7 +34,7 @@ Stories.get('/:id', async (req, res) => {
 			return res.status(404).json({ error: 'Story not found' });
 		}
 
-		return res.json(story);
+		return res.json({ story: story.story, title: story.title });
 	} catch (err) {
 		console.error('Error fetching story:', err);
 		return res.status(500).json({ error: 'Internal server error' });

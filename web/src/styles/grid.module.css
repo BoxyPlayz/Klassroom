@@ -10,6 +10,6 @@
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	min-height: 0; /* ← THIS IS CRITICAL */
-	overflow: hidden; /* ← CONTAINS THE SCROLL */
+	min-height: 0;
+	overflow: hidden;
 }
