@@ -19,7 +19,7 @@
 		"@eslint/js": "^9.39.2",
 		"@types/cors": "^2.8.19",
 		"@types/express": "^5.0.6",
-		"@types/node": "^24.10.4",
+		"@types/node": "^24.10.9",
 		"@types/pg": "^8.16.0",
 		"eslint": "^9.39.2",
 		"globals": "^16.5.0",
@@ -27,18 +27,18 @@
 		"tsc-watch": "^7.2.0",
 		"tslib": "^2.8.1",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.50.0"
+		"typescript-eslint": "^8.53.0"
 	},
 	"dependencies": {
-		"@better-auth/passkey": "^1.4.7",
-		"@types/nodemailer": "^7.0.4",
-		"better-auth": "^1.4.7",
+		"@better-auth/passkey": "^1.4.13",
+		"@types/nodemailer": "^7.0.5",
+		"better-auth": "^1.4.13",
 		"cors": "^2.8.5",
 		"dotenv": "^17.2.3",
 		"express": "^5.2.1",
 		"kysely": "^0.28.9",
 		"mongodb": "^7.0.0",
-		"nodemailer": "^7.0.11",
-		"pg": "^8.16.3"
+		"nodemailer": "^7.0.12",
+		"pg": "^8.17.1"
 	}
 }

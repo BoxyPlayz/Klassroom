@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { auth } from '../lib/auth.js';
 import { db } from '../lib/db.js';
 
-const Stories = Router();
+const Stories: Router = Router();
 
 Stories.post('/create', async (req, res) => {
 	const session = await auth.api.getSession({ headers: fromNodeHeaders(req.headers) });
