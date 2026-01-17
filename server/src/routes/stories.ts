@@ -48,7 +48,7 @@ Stories.get('/list/:count', async (req, res) => {
 				'user.name as authorName',
 				'stories.author as authorId',
 			])
-			.orderBy('id', 'desc')
+			.orderBy('stories.id', 'desc')
 			.limit(count)
 			.execute();
 

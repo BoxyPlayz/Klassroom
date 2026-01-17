@@ -1,4 +1,6 @@
-import type { User } from 'better-auth';
+import type { Passkey } from '@better-auth/passkey';
+import type { Account, Session, User, Verification } from 'better-auth';
+import type { Invitation, Member, Organization } from 'better-auth/plugins';
 import 'dotenv/config';
 import { Kysely, PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
@@ -17,6 +19,13 @@ interface Story {
 interface Database {
 	stories: Story;
 	user: User;
+	member: Member;
+	invitation: Invitation;
+	organization: Organization;
+	passkey: Passkey;
+	session: Session;
+	verification: Verification;
+	account: Account;
 }
 
 export const rawDb = new Pool({ connectionString: process.env['DATABASE_URL'] });

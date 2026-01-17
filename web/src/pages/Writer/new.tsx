@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
-import { Fragment } from 'preact/jsx-runtime';
 import { apiUrl } from '@/lib/utils';
 import Styles from './styles.module.css';
 
 interface storyEntry {
-	id: string;
+	id: number;
 	title: string;
 	authorName: string;
 	authorId: string;
@@ -12,29 +11,43 @@ interface storyEntry {
 
 export default function WriterNew() {
 	const [storyEntries, setStoryEntries] = useState<storyEntry[]>([]);
+	const [loading, setLoading] = useState(true);
+	const minStories = 0;
+
 	useEffect(() => {
 		fetch(`${apiUrl}/story/list/50`)
 			.then((val) => val.json())
 			.then((val) => {
 				setStoryEntries(val.stories);
+				setLoading(false);
 			});
 	}, []);
 
-	if (storyEntries.length === 0) {
+	if (loading) {
 		return <p>Loading…</p>;
+	}
+	if (storyEntries.length === minStories) {
+		return (
+			<p>
+				No stories yet.{' '}
+				<a href={`${window.location.origin}/writer/edit`}>
+					Make the first one
+				</a>
+			</p>
+		);
 	}
 
 	return (
 		<>
-			{storyEntries.map((val) => {
-				return (
-					<a href={`${window.location.origin}/writer/${val.id}`}>
-						<span key={val.id} className={Styles.story}>
-								{val.title} by {val.authorName}
-						</span>
-					</a>
-				);
-			})}
+			{storyEntries.map((val) => (
+				<a
+					key={val.id}
+					href={`${window.location.origin}/writer/${val.id}`}>
+					<span className={Styles.story}>
+						{val.title} by {val.authorName}
+					</span>
+				</a>
+			))}
 		</>
 	);
 }
