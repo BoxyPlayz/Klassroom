@@ -2,6 +2,7 @@ import { Passkey } from '@better-auth/passkey';
 import { useLocation } from 'preact-iso';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { authClient, signOut, useSession } from '@/lib/auth-client';
+import useTitle from '@/hooks/title';
 
 export default function Account() {
 	const passkeyRef = useRef<HTMLInputElement>(null);
@@ -20,6 +21,8 @@ export default function Account() {
 	useEffect(() => {
 		getPasskeys();
 	}, [getPasskeys]);
+
+	useTitle()[1]('Account');
 
 	return (
 		<>

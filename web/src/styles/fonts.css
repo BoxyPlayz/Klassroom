@@ -8,6 +8,11 @@
 	src: url('./JetBrainsMono.ttf');
 }
 
+@font-face {
+	font-family: Undertale;
+	src: url('./Undertale.ttf');
+}
+
 :root {
 	font-family: OpenSans, sans-serif;
 	font-weight: 400;
@@ -16,4 +21,9 @@
 .jetbrains {
 	font-family: JetBrains, monospace;
 	font-weight: 200;
+}
+
+.undertale {
+font-family: Undertale, OpenSans, sans-serif;
+	font-weight: 400;
 }

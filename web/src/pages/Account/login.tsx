@@ -3,12 +3,16 @@ import { useLocation } from 'preact-iso';
 import { useRef, useState } from 'preact/hooks';
 import ThemedButton from '@/components/ThemedButton';
 import { signIn, useSession } from '@/lib/auth-client';
+import useTitle from '@/hooks/title';
 
 export default function Login() {
 	const { data: session } = useSession();
 	const [err, setErr] = useState('');
 	const emailInput = useRef<HTMLInputElement>(null);
 	const location = useLocation();
+
+	useTitle()[1]('Log In');
+
 	return (
 		<>
 			{session ?

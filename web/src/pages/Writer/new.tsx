@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { apiUrl } from '@/lib/utils';
 import Styles from './styles.module.css';
+import useTitle from '@/hooks/title';
 
 interface storyEntry {
 	id: number;
@@ -36,6 +37,7 @@ export default function WriterNew() {
 			</p>
 		);
 	}
+	useTitle()[1]('New Stories');
 
 	return (
 		<>

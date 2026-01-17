@@ -4,6 +4,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { CgShare } from 'react-icons/cg';
 import Markdown from 'react-markdown';
 import { apiUrl } from '@/lib/utils';
+import useTitle from '@/hooks/title';
 
 function writerNoFound() {
 	return (
@@ -22,6 +23,7 @@ export default function WriterView() {
 	const [message, setMessage] = useState(<></>);
 	const permissionWrite = usePermission('clipboard-write');
 	const [, copy] = useClipboard();
+	const [,setPageTitle] = useTitle()
 	if (isNaN(storyId)) {
 		return writerNoFound();
 	}
@@ -37,6 +39,9 @@ export default function WriterView() {
 				setTitle(val.title);
 			});
 	}, []);
+	useEffect(() => {
+		setPageTitle(title)
+	}, [title])
 	return (
 		<>
 			<h1>
