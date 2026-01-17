@@ -26,7 +26,7 @@ export default function WriterView() {
 		return writerNoFound();
 	}
 	useEffect(() => {
-		fetch(`${apiUrl}/story/${storyId}`)
+		fetch(`${apiUrl}/story/content/${storyId}`)
 			.then((val) => val.json())
 			.then((val: { error?: string; title?: string; story?: string }) => {
 				if (val.error) {

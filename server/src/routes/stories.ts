@@ -18,7 +18,48 @@ Stories.post('/create', async (req, res) => {
 	return res.json({ id: inserted?.id });
 });
 
-Stories.get('/:id', async (req, res) => {
+Stories.get('/list/:count', async (req, res) => {
+	try {
+		const count = Number(req.params.count);
+		if (isNaN(count)) {
+			return res
+				.status(400)
+				.json({
+					status: 400,
+					error: "Uh... what? I don- I don't even know what to say",
+				});
+		}
+		if (count < 1) {
+			return res
+				.status(400)
+				.json({ status: 400, error: 'Less than 1 stories selected' });
+		}
+		if (count > 500) {
+			return res
+				.status(413)
+				.json({ status: 413, error: 'Over 500 stories selected' });
+		}
+		const stories = await db
+			.selectFrom('stories')
+			.leftJoin('user', 'user.id', 'stories.author')
+			.select([
+				'stories.id as id',
+				'stories.title as title',
+				'user.name as authorName',
+				'stories.author as authorId',
+			])
+			.orderBy('id', 'desc')
+			.limit(count)
+			.execute();
+
+		return res.json({ stories });
+	} catch (e) {
+		console.error(e);
+		return res.status(500).json({ error: 'Internal server error' });
+	}
+});
+
+Stories.get('/content/:id', async (req, res) => {
 	const storyId = parseInt(req.params.id, 10);
 	if (isNaN(storyId)) {
 		return res.status(400).json({ error: 'Invalid story ID' });

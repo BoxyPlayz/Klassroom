@@ -1,16 +1,17 @@
 import { useLocalStorage } from '@reactuses/core';
 import { LocationProvider, Route, Router, hydrate, lazy, prerender as ssr } from 'preact-iso';
-import Header from '@/components/Header.jsx';
+import Header from '@/components/Header';
 import theme from '@/lib/theme';
 import '@/styles/fonts.css';
 import '@/styles/root.css';
 
 const Home = lazy(() => import('./pages/Home/index.js'));
-const NotFound = lazy(() => import('./pages/_404.jsx'));
+const NotFound = lazy(() => import('./pages/_404.js'));
 const Login = lazy(() => import('./pages/Account/login.js'));
 const Account = lazy(() => import('./pages/Account/account.js'));
 const WriterEditor = lazy(() => import('./pages/Writer/editor.js'));
 const WriterView = lazy(() => import('./pages/Writer/view.js'));
+const WriterNew = lazy(() => import('./pages/Writer/new.js'));
 
 export function App() {
 	const [themeColor] = useLocalStorage('theme', 'light');
@@ -42,6 +43,10 @@ export function App() {
 					/>
 					<Route
 						path='/writer'
+						component={WriterNew}
+					/>
+					<Route
+						path='/writer/edit'
 						component={WriterEditor}
 					/>
 					<Route

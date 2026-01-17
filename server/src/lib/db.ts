@@ -1,3 +1,4 @@
+import type { User } from 'better-auth';
 import 'dotenv/config';
 import { Kysely, PostgresDialect } from 'kysely';
 import { Pool } from 'pg';
@@ -15,6 +16,7 @@ interface Story {
 
 interface Database {
 	stories: Story;
+	user: User;
 }
 
 export const rawDb = new Pool({ connectionString: process.env['DATABASE_URL'] });
