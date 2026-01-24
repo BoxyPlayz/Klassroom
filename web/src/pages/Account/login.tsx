@@ -2,8 +2,8 @@ import { validate } from 'email-validator';
 import { useLocation } from 'preact-iso';
 import { useRef, useState } from 'preact/hooks';
 import ThemedButton from '@/components/ThemedButton';
-import { signIn, useSession } from '@/lib/auth-client';
 import useTitle from '@/hooks/title';
+import { signIn, useSession } from '@/lib/auth-client';
 
 export default function Login() {
 	const { data: session } = useSession();

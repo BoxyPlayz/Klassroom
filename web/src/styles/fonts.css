@@ -24,6 +24,7 @@
 }
 
 .undertale {
-font-family: Undertale, OpenSans, sans-serif;
+	font-family: Undertale, OpenSans, sans-serif;
 	font-weight: 400;
+	padding: 10px;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
+import useTitle from '@/hooks/title';
 import { apiUrl } from '@/lib/utils';
 import Styles from './styles.module.css';
-import useTitle from '@/hooks/title';
 
 interface storyEntry {
 	id: number;
@@ -41,6 +41,9 @@ export default function WriterNew() {
 
 	return (
 		<>
+			<h1>
+				<a href='/writer/edit'>Create New Story</a>
+			</h1>
 			{storyEntries.map((val) => (
 				<a
 					key={val.id}

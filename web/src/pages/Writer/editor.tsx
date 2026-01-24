@@ -3,11 +3,11 @@ import { useEffect, useState } from 'preact/hooks';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
+import useTitle from '@/hooks/title';
 import { useSession } from '@/lib/auth-client';
 import theme from '@/lib/theme';
 import { apiUrl } from '@/lib/utils';
 import grid from '@/styles/grid.module.css';
-import useTitle from '@/hooks/title';
 
 export default function Writer() {
 	const { data: session } = useSession();
@@ -15,14 +15,14 @@ export default function Writer() {
 	const [md, setMd] = useState('');
 	const [title, setTitle] = useState('');
 	const [info, setInfo] = useState(<></>);
-	const [, setPageTitle] = useTitle()
+	const [, setPageTitle] = useTitle();
 	function renderPreview({ target }: Event) {
 		const { value } = target as HTMLTextAreaElement;
 		setMd(value);
 	}
 	useEffect(() => {
-		setPageTitle(title)
-	}, [title])
+		setPageTitle(title);
+	}, [title]);
 
 	return (
 		<div>

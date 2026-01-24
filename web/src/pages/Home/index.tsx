@@ -1,4 +1,4 @@
-import useTitle from "@/hooks/title";
+import useTitle from '@/hooks/title';
 
 export default function Home() {
 	useTitle()[1]('Klassroom');

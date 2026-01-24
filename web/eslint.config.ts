@@ -17,6 +17,7 @@ export default defineConfig([
 		extends: ['js/all'],
 		languageOptions: { globals: globals.browser },
 		rules: {
+			'no-magic-numbers': ['off'],
 			'sort-imports': ['off'],
 			'sort-keys': ['off'],
 			'no-underscore-dangle': ['off'],
