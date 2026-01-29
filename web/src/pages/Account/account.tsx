@@ -53,7 +53,6 @@ export default function Account() {
 								);
 							if (error) {
 								console.error({ data, error });
-								return;
 							}
 							getPasskeys();
 						}}>

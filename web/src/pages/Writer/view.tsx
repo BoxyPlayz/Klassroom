@@ -32,8 +32,7 @@ export default function WriterView() {
 			.then((val) => val.json())
 			.then((val: { error?: string; title?: string; story?: string }) => {
 				if (val.error) {
-					console.error(val.error);
-					return;
+					return console.error(val.error);
 				}
 				setStory(val.story);
 				setTitle(val.title);
