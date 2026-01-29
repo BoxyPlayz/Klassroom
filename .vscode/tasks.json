@@ -8,7 +8,10 @@
 			"problemMatcher": [],
 			"label": "Lint - Server",
 			"detail": "eslint .",
-			"group": { "kind": "test", "isDefault": true }
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
 		},
 		{
 			"type": "npm",

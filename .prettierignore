@@ -1,7 +1,3 @@
-**/desktop-venv
 **/node_modules
 **/dist
 **/pnpm-lock.yaml
-# To save time temperarily
-**/mobile/**
-**/desktop/**

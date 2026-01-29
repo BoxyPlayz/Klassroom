@@ -47,7 +47,15 @@
 		"moduleDetection": "force",
 		"skipLibCheck": true,
 		"removeComments": true,
-		"paths": { "@/*": ["*"], "@lib/*": ["./lib/*"] }
+		"paths": {
+			"@/*": ["*"],
+			"@lib/*": ["./lib/*"]
+		}
 	},
-	"watchOptions": { "excludeDirectories": ["node_modules", "dist"] }
+	"watchOptions": {
+		"excludeDirectories": [
+			"node_modules",
+			"dist"
+		]
+	}
 }
