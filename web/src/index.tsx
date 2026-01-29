@@ -12,6 +12,7 @@ const Account = lazy(() => import('./pages/Account/account.js'));
 const WriterEditor = lazy(() => import('./pages/Writer/editor.js'));
 const WriterView = lazy(() => import('./pages/Writer/view.js'));
 const WriterNew = lazy(() => import('./pages/Writer/new.js'));
+const MathRun = lazy(() => import('./pages/Mathrun/mathrun.js'));
 
 export function App() {
 	const [themeColor] = useLocalStorage('theme', 'light');
@@ -52,6 +53,10 @@ export function App() {
 					<Route
 						path='/writer/:id'
 						component={WriterView}
+					/>
+					<Route
+						path='/mathruns'
+						component={MathRun}
 					/>
 					<Route
 						default
